@@ -13,14 +13,15 @@ class CityForecastModel: NSObject {
     var dt : NSNumber? = 0
     var mainVal:String = ""
     var icon:String = ""
-    
+    var rain:NSNumber? = 0
     
     class func jsonMapping() -> [String : String] {
         
         return [
             "dt":"dt",
             "main":"mainVal",
-            "icon":"icon"]
+            "icon":"icon",
+            "rain":"rain"]
     }
     
     class func getModelFromDictionary(dictionary:NSDictionary) -> CityForecastModel {
@@ -52,14 +53,15 @@ class CityForecastModel: NSObject {
             var model = CityForecastModel()
             
             let dict = tempDict as! NSDictionary
-            
             let weatherDict = dict["weather"] as! NSArray
-
             let subDict = weatherDict[0] as! NSDictionary
             
             model = getModelFromDictionary(subDict)
 
             model.setValue(dict["dt"], forKey: "dt")
+
+            let result1 = (dict["rain"] != nil) ? dict["rain"] : 0;
+            model.setValue(result1, forKey: "rain")
 
             weatherForcastList.append(model)
             

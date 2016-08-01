@@ -18,6 +18,7 @@
 		F8A51AE51D4BEC9200D64995 /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A51AE41D4BEC9200D64995 /* AbstractViewController.swift */; };
 		F8A51AE71D4BECEF00D64995 /* WeatherHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A51AE61D4BECEF00D64995 /* WeatherHomeViewController.swift */; };
 		F8A51AEF1D4BF11A00D64995 /* APIProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A51AEE1D4BF11A00D64995 /* APIProxy.swift */; };
+		F8B5308F1D4FB6F600F601E8 /* TestLocationSimulation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F8B5308E1D4FB6F600F601E8 /* TestLocationSimulation.gpx */; };
 		F8D5AA731D47E5E800354719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5AA601D47E5E800354719 /* AppDelegate.swift */; };
 		F8D5AA741D47E5E800354719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D5AA681D47E5E800354719 /* LaunchScreen.storyboard */; };
 		F8D5AA751D47E5E800354719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D5AA6A1D47E5E800354719 /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 		F8A51AE41D4BEC9200D64995 /* AbstractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		F8A51AE61D4BECEF00D64995 /* WeatherHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeViewController.swift; sourceTree = "<group>"; };
 		F8A51AEE1D4BF11A00D64995 /* APIProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProxy.swift; sourceTree = "<group>"; };
+		F8B5308D1D4F931300F601E8 /* WeatherForecast_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherForecast_Bridging_Header.h; sourceTree = "<group>"; };
+		F8B5308E1D4FB6F600F601E8 /* TestLocationSimulation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestLocationSimulation.gpx; sourceTree = "<group>"; };
 		F8D5AA3C1D47E38300354719 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D5AA601D47E5E800354719 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D5AA691D47E5E800354719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F869701F1D4D1B1600D14669 /* Constants.swift */,
+				F8B5308D1D4F931300F601E8 /* WeatherForecast_Bridging_Header.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -263,6 +267,7 @@
 		F8D5AA6F1D47E5E800354719 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F8B5308E1D4FB6F600F601E8 /* TestLocationSimulation.gpx */,
 				F8D5AA701D47E5E800354719 /* Assets.xcassets */,
 				F8D5AA711D47E5E800354719 /* Info.plist */,
 			);
@@ -340,6 +345,7 @@
 				F88758FA1D4E32070031688B /* CityWeatherForecastCell.xib in Resources */,
 				F8D5AA781D47E5E800354719 /* Info.plist in Resources */,
 				F8D5AA741D47E5E800354719 /* LaunchScreen.storyboard in Resources */,
+				F8B5308F1D4FB6F600F601E8 /* TestLocationSimulation.gpx in Resources */,
 				F8D5AA771D47E5E800354719 /* Assets.xcassets in Resources */,
 				F8D5AA751D47E5E800354719 /* Main.storyboard in Resources */,
 			);
@@ -527,6 +533,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harshal.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = WeatherForecast/Application/Headers/WeatherForecast_Bridging_Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -542,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harshal.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = WeatherForecast/Application/Headers/WeatherForecast_Bridging_Header.h;
 			};
 			name = Release;
 		};

@@ -93,7 +93,7 @@ class APIProxy: NSObject {
             }
         } else {
             MBProgressHUD.hideHUDForView(APP_DELEGATE.window, animated: true)
-            UIUtils.alertViewWithMessage("Alert", message: NSLocalizedString("Please check your internet connection.", comment:""))
+            UIUtils.alertViewWithMessage("Error", message: NO_NETWORK_CONNECTION)
             
         }
     }
@@ -104,7 +104,7 @@ class APIProxy: NSObject {
         
         if error._code == NSURLErrorTimedOut {
             
-            UIUtils.alertViewWithMessage("Alert", message:"The server is not responding, please try again later.")
+            UIUtils.alertViewWithMessage("Alert", message:SERVER_TIME_OUT)
         }
     }
 
@@ -122,10 +122,10 @@ class APIProxy: NSObject {
                 
                 return false
             }
-            if code == 401 {
+            if code == 401 || code == 404 {
                 
-                let message = object["message"] as! String
-                UIUtils.alertViewWithMessage("Alert", message: message)
+//                let message = object["message"] as! String
+                UIUtils.alertViewWithMessage("Alert", message: INCORRECT_CITY_NAME)
                 return true
             }
             

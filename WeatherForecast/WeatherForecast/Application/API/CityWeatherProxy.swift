@@ -31,7 +31,7 @@ class CityWeatherProxy: NSObject {
 
                 if APIProxy.checkServerRequestFailuire(response){
                     
-                    failureHandler(finished: false, response: "")
+                    failureHandler(finished: false, response: response)
                 }
                 else {
                     completionHandler(finished: true, response: response)

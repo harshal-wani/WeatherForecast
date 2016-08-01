@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var isNetworkAvailable = true
+    var reachability = Reachability?()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
+        IQKeyboardManager.sharedManager().enable = true
+        declareNetworkReachability()
         return true
     }
 
@@ -40,6 +47,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    //MARK: Network Reachability
+    
+    func declareNetworkReachability()  {
+        
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability?.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+    }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+                isNetworkAvailable = true
+            } else {
+                print("Reachable via Cellular")
+                isNetworkAvailable = true
+            }
+        } else {
+            isNetworkAvailable = false
+            UIUtils.alertViewWithMessage("Alert", message: NO_NETWORK_CONNECTION)
+        }
     }
 
 
