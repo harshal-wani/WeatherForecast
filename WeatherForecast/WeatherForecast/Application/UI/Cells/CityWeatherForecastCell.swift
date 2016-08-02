@@ -37,7 +37,8 @@ class CityWeatherForecastCell: UITableViewCell {
         
         self.lblDay.text = String(format:"%@", NSDate.convertDateToWithFormat(Double(model.dt!)))
         
-        self.lblRainTemp.text = model.rain?.stringValue
+        self.lblRainTemp.text = String(format:"%.2f", (model.rain?.floatValue)!)
+        
         let  imageUrl = BASE_URL + "img/w/" + model.icon + ".png"
         
         self.imgWeather!.sd_setImageWithURL((NSURL(string: imageUrl)), placeholderImage: UIImage(named: "weather_placeholder"))

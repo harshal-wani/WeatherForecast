@@ -186,9 +186,7 @@
 				F8A51AED1D4BF11A00D64995 /* API */,
 				F8D5AA5F1D47E5E800354719 /* AppDelegate */,
 				F8D5AA621D47E5E800354719 /* Headers */,
-				F8D5AA631D47E5E800354719 /* Localization */,
 				F8A51AD91D4BE5F900D64995 /* Models */,
-				F8D5AA651D47E5E800354719 /* Singleton */,
 				F8D5AA661D47E5E800354719 /* UI */,
 			);
 			path = Application;
@@ -209,20 +207,6 @@
 				F8B5308D1D4F931300F601E8 /* WeatherForecast_Bridging_Header.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		F8D5AA631D47E5E800354719 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		F8D5AA651D47E5E800354719 /* Singleton */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Singleton;
 			sourceTree = "<group>";
 		};
 		F8D5AA661D47E5E800354719 /* UI */ = {
